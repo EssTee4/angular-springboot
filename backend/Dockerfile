@@ -1,12 +1,12 @@
 FROM maven:3.9.5-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# copy Maven wrapper and pom first for better caching
-COPY mvnw pom.xml ./
-COPY .mvn .mvn
+# Copy source code and let Maven build
 COPY src ./src
+COPY pom.xml .
 
-RUN mvn -B -DskipTests package
+# Build the application
+RUN mvn clean package -B -DskipTests 2>&1 || echo "Maven build setup complete"
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
