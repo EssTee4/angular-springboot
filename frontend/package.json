@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prebuild": "sh scripts/env.sh"
+    "prebuild": "sh src/scripts/env.sh"
   },
   "private": true,
   "dependencies": {
