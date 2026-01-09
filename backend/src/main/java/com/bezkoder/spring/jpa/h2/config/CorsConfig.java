@@ -17,12 +17,12 @@ public class CorsConfig {
                         .allowedOrigins(
                             System.getenv().getOrDefault(
                                 "FRONTEND_URL",
-                                "http://localhost:4200"
+                                "https://angular-springboot-1.onrender.com/tutorials"
                             )
                         )
                         .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }
